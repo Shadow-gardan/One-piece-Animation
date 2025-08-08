@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: url("wallpaper.jpg");
+    background-size: cover;
+}
+.banner {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .slider {
+    position: absolute;
+    width: 110px;
+    height: 160px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: AutoRun 40s linear infinite;
+}
+
+@keyframes AutoRun {
+    from {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(0deg);
+    }
+    to {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item {
+    position: absolute;
+    inset: 0;
+    transform: 
+        rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) 
+        translateZ(550px);
+}
+
+.banner .slider .item img {
+    box-shadow: 0 0 30px rgb(255, 226, 4);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.banner .slider .item h1{
+    color: #0be3a9e4;
+    font-style: oblique;
+    font-family: Arial, Helvetica, sans-serif;
+}
